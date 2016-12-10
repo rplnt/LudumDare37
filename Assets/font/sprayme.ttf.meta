@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 0e20307dc9342b54f8c79b3b16fc4657
+timeCreated: 1481375114
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Spray.ME
+  fontNames:
+  - Spray.ME
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
