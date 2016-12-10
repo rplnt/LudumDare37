@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d3296f68a74d93f42b009ac2307b9060
-timeCreated: 1481399708
+timeCreated: 1481403825
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -17,6 +17,11 @@ TextureImporter:
     21300020: tree
     21300022: wall
     21300024: blank_screen
+    21300026: packages_0_hl
+    21300028: packages_1_hl
+    21300030: packages_2_hl
+    21300032: packages_3_hl
+    21300034: packages_4_hl
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -108,9 +113,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 418
+        y: 417
         width: 107
-        height: 41
+        height: 42
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,9 +125,9 @@ TextureImporter:
       name: packages_2
       rect:
         serializedVersion: 2
-        x: 2
+        x: 1
         y: 351
-        width: 50
+        width: 51
         height: 66
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -134,9 +139,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 57
-        y: 353
-        width: 41
-        height: 62
+        y: 350
+        width: 43
+        height: 66
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,9 +152,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 280
+        y: 279
         width: 42
-        height: 69
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,8 +177,8 @@ TextureImporter:
       name: spill
       rect:
         serializedVersion: 2
-        x: 104
-        y: 334
+        x: 268
+        y: 93
         width: 84
         height: 82
       alignment: 0
@@ -185,8 +190,8 @@ TextureImporter:
       name: tv
       rect:
         serializedVersion: 2
-        x: 112
-        y: 422
+        x: 274
+        y: 183
         width: 138
         height: 90
       alignment: 0
@@ -198,8 +203,8 @@ TextureImporter:
       name: chair
       rect:
         serializedVersion: 2
-        x: 197
-        y: 344
+        x: 360
+        y: 103
         width: 64
         height: 64
       alignment: 9
@@ -211,8 +216,8 @@ TextureImporter:
       name: cover
       rect:
         serializedVersion: 2
-        x: 120
-        y: 257
+        x: 280
+        y: 16
         width: 68
         height: 66
       alignment: 0
@@ -237,8 +242,8 @@ TextureImporter:
       name: wall
       rect:
         serializedVersion: 2
-        x: 276
-        y: 431
+        x: 3
+        y: 23
         width: 224
         height: 79
       alignment: 0
@@ -250,10 +255,75 @@ TextureImporter:
       name: blank_screen
       rect:
         serializedVersion: 2
-        x: 209
-        y: 256
+        x: 370
+        y: 17
         width: 116
         height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: packages_0_hl
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 461
+        width: 85
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: packages_1_hl
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 417
+        width: 109
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: packages_2_hl
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 351
+        width: 51
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: packages_3_hl
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 350
+        width: 43
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: packages_4_hl
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 279
+        width: 42
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

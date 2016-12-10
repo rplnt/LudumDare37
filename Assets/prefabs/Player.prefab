@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4466690696361992}
   - component: {fileID: 61257461348451400}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Catcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 4829878496755636}
   - component: {fileID: 50678059022338872}
   - component: {fileID: 114876430943370236}
+  - component: {fileID: 114645126994409084}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -210,6 +211,17 @@ BoxCollider2D:
   m_Offset: {x: 0.0067109168, y: -0.18343252}
   serializedVersion: 2
   m_Size: {x: 0.70919234, y: 0.63313484}
+--- !u!114 &114645126994409084
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1830254455138220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3926ca687e8c8454bb2b3195814e8081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114876430943370236
 MonoBehaviour:
   m_ObjectHideFlags: 1
