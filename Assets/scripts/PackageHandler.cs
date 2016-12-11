@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PackageHandler : MonoBehaviour {
 
-    List<GameObject> withinReach;
+    HashSet<GameObject> withinReach;
     GameObject targetPackage = null;
     GameObject holding = null;
     
 
 	// Use this for initialization
 	void Start () {
-        withinReach = new List<GameObject>();
+        withinReach = new HashSet<GameObject>();
 	}
 
 
@@ -47,33 +47,34 @@ public class PackageHandler : MonoBehaviour {
 
     void PickupPackage() {
         holding = targetPackage;
-        Rigidbody2D rb = holding.GetComponent<Rigidbody2D>();
-        rb.isKinematic = true;
-        rb.velocity = Vector2.zero;
+        //Rigidbody2D rb = holding.GetComponent<Rigidbody2D>();
+        holding.GetComponent<PackageManager>().PickUp(); ;
+        //rb.isKinematic = true;
+        //rb.velocity = Vector2.zero;
         //holding.transform.position = this.transform.position;
         holding.transform.SetParent(this.transform);
-        targetPackage.GetComponent<PackageManager>().HighlightPackage(false);
     }
 
     void DropPackage() {
         holding.transform.SetParent(null);
+        holding.GetComponent<PackageManager>().Drop();
         holding = null;
         targetPackage = null;
     }
 
 
     void OnTriggerEnter2D(Collider2D col) {
-        if (col.attachedRigidbody.CompareTag("package")) {
-            Debug.Log("Adding package " + col.attachedRigidbody.gameObject.name);
-            withinReach.Add(col.attachedRigidbody.gameObject);
+        if (col.gameObject.CompareTag("package")) {
+            Debug.Log("Adding package " + col.gameObject.name);
+            withinReach.Add(col.gameObject);
         }
     }
 
     void OnTriggerExit2D(Collider2D col) {
-        if (col.attachedRigidbody.CompareTag("package")) {
-            Debug.Log("Removing package " + col.attachedRigidbody.gameObject.name);
-            withinReach.Remove(col.attachedRigidbody.gameObject);
-            if (targetPackage == col.attachedRigidbody.gameObject) {
+        if (col.gameObject.CompareTag("package")) {
+            Debug.Log("Removing package " + col.gameObject.name);
+            withinReach.Remove(col.gameObject);
+            if (targetPackage == col.gameObject) {
                 targetPackage.GetComponent<PackageManager>().HighlightPackage(false);
                 targetPackage = null;
             }

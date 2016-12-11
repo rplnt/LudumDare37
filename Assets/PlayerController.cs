@@ -52,9 +52,14 @@ public class PlayerController : MonoBehaviour {
                 transform.Rotate(Vector3.forward, -rotateSpeed * Time.deltaTime);
             }
         }
-
-
-
-
 	}
+
+    void OnCollisionEnter2D(Collision2D col) {
+        Debug.Log(col.gameObject.name);
+    }
+
+
+    void OnTriggerEnter2D(Collider2D col) {
+        Debug.Log(col.gameObject.name);
+    }
 }
