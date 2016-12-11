@@ -1,0 +1,88 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="countries_data" version="1.3.0" audacityversion="2.1.1" sel0="0.0000000000" sel1="0.0000000000" vpos="0" h="0.0000000000" zoom="21.5332031250" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="Audio Track" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1376647">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000c7f.au" len="170496" min="-0.474048" max="0.402548" rms="0.069873"/>
+				</waveblock>
+				<waveblock start="170496">
+					<simpleblockfile filename="e00004dd.au" len="262144" min="-0.636912" max="0.525934" rms="0.103377"/>
+				</waveblock>
+				<waveblock start="432640">
+					<simpleblockfile filename="e0000176.au" len="262144" min="-0.589387" max="0.601796" rms="0.093947"/>
+				</waveblock>
+				<waveblock start="694784">
+					<simpleblockfile filename="e000025b.au" len="262144" min="-0.557429" max="0.599486" rms="0.085034"/>
+				</waveblock>
+				<waveblock start="956928">
+					<simpleblockfile filename="e0000fd0.au" len="262144" min="-0.65545" max="0.479964" rms="0.09848"/>
+				</waveblock>
+				<waveblock start="1219072">
+					<simpleblockfile filename="e0000457.au" len="157575" min="-0.542734" max="0.46834" rms="0.072605"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Audio Track" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1376647">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000c12.au" len="170496" min="-0.474048" max="0.402548" rms="0.069873"/>
+				</waveblock>
+				<waveblock start="170496">
+					<simpleblockfile filename="e000003d.au" len="262144" min="-0.636912" max="0.525934" rms="0.103377"/>
+				</waveblock>
+				<waveblock start="432640">
+					<simpleblockfile filename="e00005d4.au" len="262144" min="-0.589387" max="0.601796" rms="0.093947"/>
+				</waveblock>
+				<waveblock start="694784">
+					<simpleblockfile filename="e00002a7.au" len="262144" min="-0.557429" max="0.599486" rms="0.085034"/>
+				</waveblock>
+				<waveblock start="956928">
+					<simpleblockfile filename="e0000721.au" len="262144" min="-0.65545" max="0.479964" rms="0.09848"/>
+				</waveblock>
+				<waveblock start="1219072">
+					<simpleblockfile filename="e0000900.au" len="157575" min="-0.542734" max="0.46834" rms="0.072605"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<labeltrack name="Label Track" numlabels="31" height="73" minimized="0" isSelected="1">
+		<label t="0.0000000000" t1="0.0000000000" title="Finland"/>
+		<label t="0.9404081633" t1="0.9404081633" title="Sweden"/>
+		<label t="1.7908390023" t1="1.7908390023" title="Norway"/>
+		<label t="2.6877097506" t1="2.6877097506" title="France"/>
+		<label t="3.6107029478" t1="3.6107029478" title="Spain"/>
+		<label t="4.5395011338" t1="4.5395011338" title="Germany"/>
+		<label t="5.5524716553" t1="5.5524716553" title="United Kingdom"/>
+		<label t="7.0704761905" t1="7.0704761905" title="Ukraine"/>
+		<label t="8.0834467120" t1="8.0834467120" title="Japan"/>
+		<label t="9.0209523810" t1="9.0209523810" title="India"/>
+		<label t="9.8394557823" t1="9.8394557823" title="China"/>
+		<label t="10.6869841270" t1="10.6869841270" title="North Korea"/>
+		<label t="11.8653968254" t1="11.8653968254" title="Maldives"/>
+		<label t="12.9277097506" t1="12.9277097506" title="Vietnam"/>
+		<label t="14.1409523810" t1="14.1409523810" title="Bahrain"/>
+		<label t="15.0886167800" t1="15.0886167800" title="Morocco"/>
+		<label t="16.0798185941" t1="16.0798185941" title="Nigeria"/>
+		<label t="17.0245804989" t1="17.0245804989" title="Mauritius"/>
+		<label t="17.9185487528" t1="17.9185487528" title="Madagascar"/>
+		<label t="19.1317913832" t1="19.1317913832" title="Seychelles"/>
+		<label t="20.2173242630" t1="20.2173242630" title="Sierra Leone"/>
+		<label t="21.5481179138" t1="21.5481179138" title="Rwanda"/>
+		<label t="22.6815419501" t1="22.6815419501" title="Eritrea"/>
+		<label t="23.6858049887" t1="23.6858049887" title="Canada"/>
+		<label t="24.5899319728" t1="24.5899319728" title="Mexico"/>
+		<label t="25.4809977324" t1="25.4809977324" title="Brazil"/>
+		<label t="26.3256235828" t1="26.3256235828" title="Argentina"/>
+		<label t="27.3763265306" t1="27.3763265306" title="Chille"/>
+		<label t="28.0163265306" t1="28.0163265306" title="Cuba"/>
+		<label t="28.9436734694" t1="28.9436734694" title="Trinidad"/>
+		<label t="30.5895464853" t1="30.5895464853" title="End"/>
+	</labeltrack>
+</project>

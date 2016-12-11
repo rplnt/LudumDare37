@@ -6,7 +6,7 @@ public class PackageHandler : MonoBehaviour {
 
     HashSet<GameObject> withinReach;
     GameObject targetPackage = null;
-    GameObject holding = null;
+    public GameObject holding = null;
     
 
 	// Use this for initialization
@@ -28,8 +28,6 @@ public class PackageHandler : MonoBehaviour {
             }
 
             if (closest != null) {
-                // TODO highlight package
-                Debug.Log("Targeted package " + closest.name);
                 closest.GetComponent<PackageManager>().HighlightPackage(true);
                 targetPackage = closest;
             }
@@ -51,10 +49,11 @@ public class PackageHandler : MonoBehaviour {
         if (rb != null) {
             Destroy(rb);
         }
-        holding.GetComponent<PackageManager>().PickUp(); ;
-        //rb.isKinematic = true;
-        //rb.velocity = Vector2.zero;
-        //holding.transform.position = this.transform.position;
+
+        PackageManager pm = holding.GetComponent<PackageManager>();
+        pm.PickUp();
+
+        // TODO move package closer
         holding.transform.SetParent(this.transform);
     }
 
@@ -68,14 +67,12 @@ public class PackageHandler : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.CompareTag("package")) {
-            Debug.Log("Adding package " + col.gameObject.name);
             withinReach.Add(col.gameObject);
         }
     }
 
     void OnTriggerExit2D(Collider2D col) {
         if (col.gameObject.CompareTag("package")) {
-            Debug.Log("Removing package " + col.gameObject.name);
             withinReach.Remove(col.gameObject);
             if (targetPackage == col.gameObject) {
                 targetPackage.GetComponent<PackageManager>().HighlightPackage(false);

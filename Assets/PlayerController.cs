@@ -11,22 +11,26 @@ public class PlayerController : MonoBehaviour {
     bool paused = false;
 
     Rigidbody2D rb;
+    PackageHandler ph;
 
 	// Use this for initialization
 	void Start () {
         rb = this.GetComponent<Rigidbody2D>();
+        ph = this.GetComponentInChildren<PackageHandler>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (paused) return;
 
+        float holdingPenalty = ph.holding == null ? 1.2f : 0.85f;
+
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
-            transform.Translate(Vector2.up * speed * Time.deltaTime);
+            transform.Translate(Vector2.up * speed * Time.deltaTime * holdingPenalty);
         }
 
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
-            transform.Translate(Vector2.down * speed * Time.deltaTime);
+            transform.Translate(Vector2.down * speed * Time.deltaTime * 0.85f * holdingPenalty);
         }
 
         if (useMouseToRotate) {
@@ -46,10 +50,10 @@ public class PlayerController : MonoBehaviour {
             }
         } else {
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
-                transform.Rotate(Vector3.forward, rotateSpeed * Time.deltaTime);
+                transform.Rotate(Vector3.forward, rotateSpeed * Time.deltaTime * holdingPenalty);
             }
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
-                transform.Rotate(Vector3.forward, -rotateSpeed * Time.deltaTime);
+                transform.Rotate(Vector3.forward, -rotateSpeed * Time.deltaTime * holdingPenalty);
             }
         }
 	}

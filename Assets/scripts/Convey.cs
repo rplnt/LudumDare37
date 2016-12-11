@@ -12,6 +12,10 @@ public class Convey : MonoBehaviour {
 
     public float speed;
     public BeltMode mode;
+    public bool input;
+
+    public float minPenalty;
+    float penaltyTimer = 0.0f;
 
     HashSet<GameObject> packagesOnBelt;
 
@@ -22,14 +26,34 @@ public class Convey : MonoBehaviour {
     }
 
 
+    public void RemovePackageFromBelt(GameObject package) {
+        packagesOnBelt.Remove(package);
+        PackageManager pm = package.gameObject.GetComponent<PackageManager>();
+        pm.onBelt = false;
+        pm.belt = null;
+    }
+
+
     void Update() {
-        if (mode == BeltMode.REVERSE && packagesOnBelt.Count == 0) {
-            mode = BeltMode.NORMAL;
+
+        if (!input && mode == BeltMode.REVERSE) {
+            penaltyTimer += Time.deltaTime;
+
+            if (penaltyTimer >= minPenalty && packagesOnBelt.Count == 0) {
+                mode = BeltMode.NORMAL;
+                penaltyTimer = 0.0f;
+            }
+            
         }
 
+
         foreach (GameObject package in packagesOnBelt) {
+            if (!package.activeInHierarchy) {
+                Debug.LogError("Inactive package on belt found: Should not happen!");
+                continue;
+            }
             if (!package.GetComponent<PackageManager>().isHeld) {
-                package.transform.Translate(new Vector2(0.0f, 1.0f) * speed * 1.93f * Time.deltaTime * (int)mode, Space.World);
+                package.transform.Translate(new Vector2(0.0f, 1.0f) * speed * 1.77f * Time.deltaTime * (int)mode, Space.World);
             }
         }
     }
@@ -64,10 +88,7 @@ public class Convey : MonoBehaviour {
 
         //if (col.gameObject.CompareTag("package") && col.transform.parent != this.transform) {
         if (col.gameObject.CompareTag("package")) {
-            packagesOnBelt.Remove(col.gameObject);
-            PackageManager pm = col.gameObject.GetComponent<PackageManager>();
-            pm.onBelt = false;
-            pm.belt = null;
+            RemovePackageFromBelt(col.gameObject);
         }
     }
 }

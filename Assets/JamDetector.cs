@@ -5,15 +5,25 @@ using UnityEngine;
 public class JamDetector : MonoBehaviour {
 
     public float timeout;
-    float blocked = 0.0f;
+    public float warning;
+    AudioSource alarm;
+    public float blocked = 0.0f;
     int jam;
 
+
+    void Start() {
+        alarm = this.GetComponent<AudioSource>();
+    }
 
     void FixedUpdate() {
         if (jam > 0) {
             blocked += Time.deltaTime;
         } else {
             blocked = 0.0f;
+        }
+
+        if (blocked > warning && !alarm.isPlaying) {
+            alarm.Play();
         }
 
         if (blocked > timeout) {

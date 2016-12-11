@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 50176999259720234}
   - component: {fileID: 61692501552315704}
   m_Layer: 9
-  m_Name: Package
+  m_Name: Package_1
   m_TagString: package
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,7 +127,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1370992061864486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.09, y: 1.83, z: -1.1}
+  m_LocalPosition: {x: 4.39, y: 5.73, z: -1.1}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children:
   - {fileID: 4126047169679630}
@@ -225,6 +225,7 @@ MonoBehaviour:
   belt: {fileID: 0}
   isHeld: 0
   onBelt: 0
+  destination: 0
   testflag: {fileID: 21300000, guid: 840d1bcc12b8c03488e1a12c0467deac, type: 3}
 --- !u!212 &212057627329130348
 SpriteRenderer:

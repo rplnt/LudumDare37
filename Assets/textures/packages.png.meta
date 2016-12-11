@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d3296f68a74d93f42b009ac2307b9060
-timeCreated: 1481466195
+timeCreated: 1481477924
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -16,7 +16,7 @@ TextureImporter:
     21300018: cover
     21300020: tree
     21300022: wall
-    21300024: australia
+    21300024: in
     21300026: packages_0_hl
     21300028: packages_1_hl
     21300030: packages_2_hl
@@ -28,6 +28,7 @@ TextureImporter:
     21300042: asia
     21300044: africa
     21300046: americas
+    21300048: reject
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -258,7 +259,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: australia
+      name: in
       rect:
         serializedVersion: 2
         x: 370
@@ -408,6 +409,19 @@ TextureImporter:
         y: 354
         width: 119
         height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: reject
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 131
+        width: 75
+        height: 131
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -15,7 +15,7 @@ public class PackageManager : MonoBehaviour {
     public bool isHeld;
     public bool onBelt;
 
-    Continets.Continents destination;
+    public Country destination;
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +36,11 @@ public class PackageManager : MonoBehaviour {
         HighlightPackage(false);
         shadow.enabled = true;
         sprite.transform.localScale *= 1.1f;
+
+        
+        if (onBelt && belt != null) {
+            belt.gameObject.GetComponent<Convey>().RemovePackageFromBelt(this.gameObject);
+        }
         //rb.isKinematic = true;
     }
 
@@ -51,18 +56,17 @@ public class PackageManager : MonoBehaviour {
     }
 
 
-    public void SetDestination(Sprite flagSprite, Continets.Continents continent) {
-        flag.sprite = flagSprite;
-        float scale = Random.Range(0.6f, 0.7f);
+    public void SetDestination(Country dest) {
+        destination = dest;
+        flag.sprite = destination.flag;
+        float scale = Random.Range(0.4f, 0.5f);
         flag.transform.localScale = new Vector2(scale, scale);
-        flag.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, Random.Range(-30f, 30.0f));
+        flag.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, Random.Range(-20f, 20.0f));
     }
 
 
     public void HighlightPackage(bool on) {
         StartCoroutine(HighlightInOut(0.25f, !on));
-
-        SetDestination(testflag, Continets.Continents.AFRICA);
     }
 
 
