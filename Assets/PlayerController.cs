@@ -54,12 +54,12 @@ public class PlayerController : MonoBehaviour {
         }
 	}
 
-    void OnCollisionEnter2D(Collision2D col) {
-        Debug.Log(col.gameObject.name);
-    }
+    //void OnCollisionEnter2D(Collision2D col) {
+    //    Debug.Log(col.gameObject.name);
+    //}
 
 
-    void OnTriggerEnter2D(Collider2D col) {
-        Debug.Log(col.gameObject.name);
-    }
+    //void OnTriggerEnter2D(Collider2D col) {
+    //    Debug.Log(col.gameObject.name);
+    //}
 }

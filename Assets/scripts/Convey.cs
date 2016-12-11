@@ -4,35 +4,33 @@ using UnityEngine;
 
 public class Convey : MonoBehaviour {
 
+    public enum BeltMode {
+        REVERSE = -1,
+        OFF = 0,
+        NORMAL = 1
+    };
+
     public float speed;
-    public bool reverse;
+    public BeltMode mode;
 
     HashSet<GameObject> packagesOnBelt;
 
 
     void Start() {
         packagesOnBelt = new HashSet<GameObject>();
+        mode = BeltMode.NORMAL;
     }
 
 
     void Update() {
-        if (reverse && packagesOnBelt.Count == 0) {
-            Reverse();
+        if (mode == BeltMode.REVERSE && packagesOnBelt.Count == 0) {
+            mode = BeltMode.NORMAL;
         }
 
         foreach (GameObject package in packagesOnBelt) {
             if (!package.GetComponent<PackageManager>().isHeld) {
-                package.transform.Translate(new Vector2(0.0f, -1.0f) * speed * 1.93f * Time.deltaTime, Space.World);
+                package.transform.Translate(new Vector2(0.0f, 1.0f) * speed * 1.93f * Time.deltaTime * (int)mode, Space.World);
             }
-        }
-    }
-
-
-    void Reverse() {
-        reverse = !reverse;
-        foreach (GameObject package in packagesOnBelt) {
-            speed = speed * -1.0f;
-            //package.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, -1.0f) * speed * 1.5f;
         }
     }
 
@@ -46,9 +44,11 @@ public class Convey : MonoBehaviour {
         //}
 
         if (col.gameObject.CompareTag("package")) {
+            PackageManager pm = col.gameObject.GetComponent<PackageManager>();
+            pm.onBelt = true;
+            pm.belt = this.transform;
             packagesOnBelt.Add(col.gameObject);
-            //col.attachedRigidbody.velocity = new Vector2(0.0f, -1.0f) * speed * 1.93f;
-            col.gameObject.GetComponent<PackageManager>().onBelt = true;
+            
         }
 
     }
@@ -62,9 +62,12 @@ public class Convey : MonoBehaviour {
         //    col.attachedRigidbody.gameObject.GetComponent<PackageManager>().onBelt = false;
         //}
 
+        //if (col.gameObject.CompareTag("package") && col.transform.parent != this.transform) {
         if (col.gameObject.CompareTag("package")) {
             packagesOnBelt.Remove(col.gameObject);
-            col.gameObject.GetComponent<PackageManager>().onBelt = false;
+            PackageManager pm = col.gameObject.GetComponent<PackageManager>();
+            pm.onBelt = false;
+            pm.belt = null;
         }
     }
 }

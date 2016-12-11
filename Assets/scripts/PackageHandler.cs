@@ -47,7 +47,10 @@ public class PackageHandler : MonoBehaviour {
 
     void PickupPackage() {
         holding = targetPackage;
-        //Rigidbody2D rb = holding.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb = holding.GetComponent<Rigidbody2D>();
+        if (rb != null) {
+            Destroy(rb);
+        }
         holding.GetComponent<PackageManager>().PickUp(); ;
         //rb.isKinematic = true;
         //rb.velocity = Vector2.zero;

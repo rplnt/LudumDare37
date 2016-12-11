@@ -8,15 +8,21 @@ public class PackageManager : MonoBehaviour {
     SpriteRenderer highlight;
     SpriteRenderer shadow;
     SpriteRenderer sprite;
+    SpriteRenderer flag;
+
+    public Transform belt;
 
     public bool isHeld;
     public bool onBelt;
+
+    Continets.Continents destination;
 
 	// Use this for initialization
 	void Start () {
         highlight = this.transform.FindChild("Highlight").GetComponent<SpriteRenderer>();
         shadow = this.transform.FindChild("Shadow").GetComponent<SpriteRenderer>();
         sprite = this.transform.FindChild("Sprite").GetComponent<SpriteRenderer>();
+        flag = this.transform.FindChild("Flag").GetComponent<SpriteRenderer>();
         //rb = this.GetComponent<Rigidbody2D>();
         isHeld = false;
 	}
@@ -38,15 +44,25 @@ public class PackageManager : MonoBehaviour {
         shadow.enabled = false;
         //rb.velocity = Vector2.zero;
         sprite.transform.localScale /= 1.1f;
-        if (!onBelt) {
-            //rb.isKinematic = false;
+        if (onBelt && belt != null) {
+            //transform.SetParent(belt);
         }
         
     }
 
 
+    public void SetDestination(Sprite flagSprite, Continets.Continents continent) {
+        flag.sprite = flagSprite;
+        float scale = Random.Range(0.6f, 0.7f);
+        flag.transform.localScale = new Vector2(scale, scale);
+        flag.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, Random.Range(-30f, 30.0f));
+    }
+
+
     public void HighlightPackage(bool on) {
         StartCoroutine(HighlightInOut(0.25f, !on));
+
+        SetDestination(testflag, Continets.Continents.AFRICA);
     }
 
 
@@ -63,8 +79,5 @@ public class PackageManager : MonoBehaviour {
 
     }
 
-
-    public void PickUpPackage() {
-
-    }
+    public Sprite testflag;
 }
