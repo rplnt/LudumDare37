@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
@@ -16,8 +17,9 @@ public class GameManager : MonoBehaviour {
     }
 
     public PackageSpawner spawner;
-    public GameObject flagTV;
-    SpriteRenderer tv;
+    public SpriteRenderer tv;
+    public Text scoreUI;
+
     public Country accepting;
 
     AudioSource player;
@@ -34,7 +36,6 @@ public class GameManager : MonoBehaviour {
         packages = new Dictionary<Country, List<PackageManager>>();
         existing = new HashSet<Country>();
         player = this.GetComponent<AudioSource>();
-        tv = flagTV.GetComponent<SpriteRenderer>();
 
         foreach (Country c in spawner.countries) {
             packages[c] = new List<PackageManager>();
@@ -43,11 +44,32 @@ public class GameManager : MonoBehaviour {
 
 
     void Update() {
-
-        if (accepting == null && existing.Count > 0) {
+        if ((accepting == null || packages[accepting].Count == 0) && existing.Count > 0) {
             UpdateAccepting();
         }
 
+    }
+
+
+    IEnumerator PlayAccept(AudioClip c) {
+        player.clip = acceptChange;
+        player.Play();
+        float wait = player.clip.length;
+        float elapsed = 0.0f;
+        yield return null;
+
+        while (elapsed < wait) {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        player.clip = c;
+        player.Play();
+    }
+
+
+    void UpdateScore() {
+        scoreUI.text = "Score: " + score;
     }
 
 
@@ -62,10 +84,8 @@ public class GameManager : MonoBehaviour {
             return;
         }
 
-        player.clip = acceptChange;
-        player.Play();
+        StartCoroutine(PlayAccept(_target.clip));
         tv.sprite = _target.flag;
-
     }
 
 
@@ -74,9 +94,11 @@ public class GameManager : MonoBehaviour {
         existing.Add(package.destination);
     }
 
-
-    public int IncrementScore() {
-        return score++;
+    public void CollectedPackage(PackageManager package) {
+        packages[package.destination].Remove(package);
+        score++;
+        UpdateScore();
+        Destroy(package.gameObject);
     }
 
 }

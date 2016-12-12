@@ -50,14 +50,17 @@ public class CollectPackage : MonoBehaviour {
             return;
         }
 
-        if (pm.destination.continent == this.destination) {
+        conveyor.RemovePackageFromBelt(col.gameObject);
+        if (pm.destination.continent == this.destination && GameManager.GM.accepting == pm.destination) {
             col.transform.position = new Vector2(-30f, -30f);
-            conveyor.RemovePackageFromBelt(col.gameObject);
             col.transform.parent = null;
             col.gameObject.SetActive(false);
+
+            GameManager.GM.CollectedPackage(pm);
             //TODO send to pool / add score
             Debug.Log("You have a point!");
         } else {
+
             col.transform.parent = null;
             col.transform.position = new Vector3(reject.transform.position.x + Random.Range(-0.1f, 0.1f), reject.transform.position.y + Random.Range(-0.1f, 0.1f), col.transform.position.z);
             col.transform.rotation = Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f));

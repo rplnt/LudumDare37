@@ -25,6 +25,8 @@ public class PackageManager : MonoBehaviour {
         flag = this.transform.FindChild("Flag").GetComponent<SpriteRenderer>();
         //rb = this.GetComponent<Rigidbody2D>();
         isHeld = false;
+
+        SetFlag();
 	}
 	
 	// Update is called once per frame
@@ -56,8 +58,7 @@ public class PackageManager : MonoBehaviour {
     }
 
 
-    public void SetDestination(Country dest) {
-        destination = dest;
+    void SetFlag() {
         flag.sprite = destination.flag;
         float scale = Random.Range(0.4f, 0.5f);
         flag.transform.localScale = new Vector2(scale, scale);

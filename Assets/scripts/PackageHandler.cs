@@ -7,11 +7,16 @@ public class PackageHandler : MonoBehaviour {
     HashSet<GameObject> withinReach;
     GameObject targetPackage = null;
     public GameObject holding = null;
+
+    public AudioClip pickup;
+    public AudioClip drop;
+    AudioSource player;
     
 
 	// Use this for initialization
 	void Start () {
         withinReach = new HashSet<GameObject>();
+        player = this.GetComponent<AudioSource>();
 	}
 
 
@@ -27,7 +32,7 @@ public class PackageHandler : MonoBehaviour {
                 }
             }
 
-            if (closest != null) {
+            if (closest != null && minDistance < 1.0f) {
                 closest.GetComponent<PackageManager>().HighlightPackage(true);
                 targetPackage = closest;
             }
@@ -50,18 +55,27 @@ public class PackageHandler : MonoBehaviour {
             Destroy(rb);
         }
 
+        PlaySound(pickup);
         PackageManager pm = holding.GetComponent<PackageManager>();
         pm.PickUp();
-
         // TODO move package closer
         holding.transform.SetParent(this.transform);
     }
+
+
+    void PlaySound(AudioClip c) {
+        player.clip = c;
+        player.pitch = Random.Range(0.8f, 1.1f);
+        player.Play();
+    }
+
 
     void DropPackage() {
         holding.transform.SetParent(null);
         holding.GetComponent<PackageManager>().Drop();
         holding = null;
         targetPackage = null;
+        PlaySound(drop);
     }
 
 
@@ -71,11 +85,15 @@ public class PackageHandler : MonoBehaviour {
         }
     }
 
+    void NotInReach(GameObject package) {
+        withinReach.Remove(package);
+        package.GetComponent<PackageManager>().HighlightPackage(false);
+    }
+
     void OnTriggerExit2D(Collider2D col) {
         if (col.gameObject.CompareTag("package")) {
-            withinReach.Remove(col.gameObject);
+            NotInReach(col.gameObject);
             if (targetPackage == col.gameObject) {
-                targetPackage.GetComponent<PackageManager>().HighlightPackage(false);
                 targetPackage = null;
             }
         }

@@ -12,25 +12,31 @@ public class PlayerController : MonoBehaviour {
 
     Rigidbody2D rb;
     PackageHandler ph;
+    AudioSource player;
 
 	// Use this for initialization
 	void Start () {
         rb = this.GetComponent<Rigidbody2D>();
         ph = this.GetComponentInChildren<PackageHandler>();
+        player = this.GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (paused) return;
 
+        bool walking = false;
+
         float holdingPenalty = ph.holding == null ? 1.2f : 0.85f;
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
             transform.Translate(Vector2.up * speed * Time.deltaTime * holdingPenalty);
+            walking = true;
         }
 
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
             transform.Translate(Vector2.down * speed * Time.deltaTime * 0.85f * holdingPenalty);
+            walking = true;
         }
 
         if (useMouseToRotate) {
@@ -51,10 +57,18 @@ public class PlayerController : MonoBehaviour {
         } else {
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
                 transform.Rotate(Vector3.forward, rotateSpeed * Time.deltaTime * holdingPenalty);
+                walking = true;
             }
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
                 transform.Rotate(Vector3.forward, -rotateSpeed * Time.deltaTime * holdingPenalty);
+                walking = true;
             }
+        }
+
+        if (walking && !player.isPlaying) {
+            player.Play();
+        } else if (player.isPlaying) {
+            player.Stop();
         }
 	}
 
