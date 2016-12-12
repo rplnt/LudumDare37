@@ -38,6 +38,7 @@ public class PackageManager : MonoBehaviour {
         HighlightPackage(false);
         shadow.enabled = true;
         sprite.transform.localScale *= 1.1f;
+        sprite.sortingOrder = 4;
 
         
         if (onBelt && belt != null) {
@@ -54,6 +55,7 @@ public class PackageManager : MonoBehaviour {
         if (onBelt && belt != null) {
             //transform.SetParent(belt);
         }
+        sprite.sortingOrder = 3;
         
     }
 

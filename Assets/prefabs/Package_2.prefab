@@ -152,7 +152,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1350208877601222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.82, y: -0.3, z: -1.1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.1}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children:
   - {fileID: 4652668392768216}
@@ -210,7 +210,11 @@ MonoBehaviour:
   belt: {fileID: 0}
   isHeld: 0
   onBelt: 0
-  destination: 0
+  destination:
+    name: 
+    flag: {fileID: 0}
+    continent: 0
+    clip: {fileID: 0}
   testflag: {fileID: 21300000, guid: 840d1bcc12b8c03488e1a12c0467deac, type: 3}
 --- !u!212 &212435845468273878
 SpriteRenderer:
@@ -242,7 +246,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

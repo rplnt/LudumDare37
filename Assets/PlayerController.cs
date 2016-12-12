@@ -9,13 +9,11 @@ public class PlayerController : MonoBehaviour {
 
     public bool useMouseToRotate;
 
-    Rigidbody2D rb;
     PackageHandler ph;
     AudioSource player;
 
 	// Use this for initialization
 	void Start () {
-        rb = this.GetComponent<Rigidbody2D>();
         ph = this.GetComponentInChildren<PackageHandler>();
         player = this.GetComponent<AudioSource>();
 	}

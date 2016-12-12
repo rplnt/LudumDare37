@@ -57,14 +57,13 @@ public class CollectPackage : MonoBehaviour {
             col.gameObject.SetActive(false);
 
             GameManager.GM.CollectedPackage(pm);
-            //TODO send to pool / add score
-            Debug.Log("You have a point!");
         } else {
 
             col.transform.parent = null;
             col.transform.position = new Vector3(reject.transform.position.x + Random.Range(-0.1f, 0.1f), reject.transform.position.y + Random.Range(-0.1f, 0.1f), col.transform.position.z);
             col.transform.rotation = Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f));
             sirenCounter += 3;
+            GameManager.GM.RemovePoint();
 
         }
     }

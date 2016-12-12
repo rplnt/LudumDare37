@@ -19,18 +19,28 @@ public class GameManager : MonoBehaviour {
     public PackageSpawner spawner;
     public SpriteRenderer tv;
     public Text scoreUI;
+    public Text bestScoreUI;
 
     public Country accepting;
 
     AudioSource player;
     public AudioClip acceptChange;
-    
+
+    string scoreKey = "LD34_best";
     int score;
+    int best;
 
     Dictionary<Country, List<PackageManager>> packages;
     HashSet<Country> existing;
 
     void Start() {
+        best = PlayerPrefs.GetInt(scoreKey);
+        if (best > 0) {
+            bestScoreUI.text = "Best: " + best;
+        } else {
+            bestScoreUI.text = "";
+        }
+        best = 0;
         score = 0;
         accepting = null;
         packages = new Dictionary<Country, List<PackageManager>>();
@@ -96,21 +106,36 @@ public class GameManager : MonoBehaviour {
 
     public void CollectedPackage(PackageManager package) {
         packages[package.destination].Remove(package);
-        score++;
-        UpdateScore();
+        AddPoint();
         Destroy(package.gameObject);
     }
 
+
+    public void AddPoint() {
+        score++;
+        UpdateScore();
+    }
+
+    public void RemovePoint() {
+        score--;
+        UpdateScore();
+    }
+
+    public int ExistingTypes() {
+        return existing.Count;
+    }
 
     public GameObject gameover;
     public Text gameovertext;
     public bool isover = false;
 
     public void GameOver() {
+        if (score > best) {
+            PlayerPrefs.SetInt(scoreKey, score);
+        }
         isover = true;
         gameover.SetActive(true);
-        gameovertext.text = "Final Score: " + score;
-
+        gameovertext.text = "Final Score: " + score + ((score > best) ? " [NEW RECORD]" : "");
     }
 
     public void ResetGame() {

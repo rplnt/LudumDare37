@@ -33,19 +33,18 @@ public class PackageSpawner : MonoBehaviour {
         sinceSpawn += Time.deltaTime;
 
         if (sinceSpawn >= spawnDelay) {
-            if (jammed > 0.1f) {
-                sinceSpawn = spawnDelay / 2.0f;
+            if (jammed > jamWarning) {
+                sinceSpawn = 0.0f;
                 return;
             }
-            sinceSpawn = 0.0f;
+            sinceSpawn = 0.0f - Random.Range(0, GameManager.GM.ExistingTypes() / 2.0f);
             GameManager.GM.SpawnedPackage(Spawn());
-            spawned++;
 
-            if (spawned % 5 == 0) {
-                spawnDelay = Mathf.Min(5.0f, spawnDelay - 0.1f);
+            if (spawned % 2 == 0 && spawnDelay > 4.5f) {
+                spawnDelay -= 0.20f;
             }
 
-            if (spawned % 10 == 0) {
+            if (spawned % 6 == 0) {
                 difficulty = Mathf.Min(difficulty + 1, countries.Length - 1);
             }
         }
