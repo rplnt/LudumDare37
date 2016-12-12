@@ -101,4 +101,20 @@ public class GameManager : MonoBehaviour {
         Destroy(package.gameObject);
     }
 
+
+    public GameObject gameover;
+    public Text gameovertext;
+    public bool isover = false;
+
+    public void GameOver() {
+        isover = true;
+        gameover.SetActive(true);
+        gameovertext.text = "Final Score: " + score;
+
+    }
+
+    public void ResetGame() {
+        Application.LoadLevel("room");
+    }
+
 }

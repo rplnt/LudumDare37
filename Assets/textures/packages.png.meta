@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d3296f68a74d93f42b009ac2307b9060
-timeCreated: 1481477924
+timeCreated: 1481509743
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -29,6 +29,8 @@ TextureImporter:
     21300044: africa
     21300046: americas
     21300048: reject
+    21300050: head
+    21300052: arms
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -424,6 +426,32 @@ TextureImporter:
         height: 131
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: head
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 445
+        width: 63
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: arms
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 204
+        width: 72
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5100015, y: 0.27686685}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

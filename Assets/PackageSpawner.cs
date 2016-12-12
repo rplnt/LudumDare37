@@ -42,11 +42,11 @@ public class PackageSpawner : MonoBehaviour {
             spawned++;
 
             if (spawned % 5 == 0) {
-                spawnDelay = Mathf.Min(5.0f, spawnDelay * 0.9f);
+                spawnDelay = Mathf.Min(5.0f, spawnDelay - 0.1f);
             }
 
             if (spawned % 10 == 0) {
-                difficulty = Mathf.Max(difficulty + 1, countries.Length - 1);
+                difficulty = Mathf.Min(difficulty + 1, countries.Length - 1);
             }
         }
     }
@@ -76,6 +76,7 @@ public class PackageSpawner : MonoBehaviour {
 
 
     void FixedUpdate() {
+        if (GameManager.GM.isover) return;
         if (jam > 0) {
             jammed += Time.deltaTime;
         } else {
@@ -90,6 +91,7 @@ public class PackageSpawner : MonoBehaviour {
         if (jammed > jamTimeout) {
             // TODO Game Over
             Debug.Log("Input coneyor jammed, game over!");
+            GameManager.GM.GameOver();
         }
 
         jam = 0;

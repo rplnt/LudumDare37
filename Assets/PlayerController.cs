@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour {
     public float rotateSpeed;
 
     public bool useMouseToRotate;
-    bool paused = false;
 
     Rigidbody2D rb;
     PackageHandler ph;
@@ -23,7 +22,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (paused) return;
+        if (GameManager.GM.isover) return;
 
         bool walking = false;
 

@@ -23,7 +23,7 @@ public class Follow : MonoBehaviour {
             Mathf.Clamp(follow.transform.position.x, limitUL.position.x + size * ratio, LimitDR.position.x - size * ratio),
             Mathf.Clamp(follow.transform.position.y, LimitDR.position.y + size, limitUL.position.y - size),
             -10.0f);
-        Debug.Log("Player: " + follow.transform.position + " bounds: " + limitUL.position + ", " + LimitDR.position);
+
         this.transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * 10.0f);
 	}
 }
